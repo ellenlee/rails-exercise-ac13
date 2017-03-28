@@ -5,6 +5,14 @@
   <tr id="topic-<%= topic.id %>">
     <td><%= topic.title %></td>
     <td>
+      <%= topic.liked_users.size %>
+    </td>
+    <td>
+      <% topic.liked_users.each do |u| %>
+        <%= u.display_name %>,
+      <% end %>
+    </td>
+    <td>
       <%= link_to "Delete", topic_path(topic), :method => :delete, :remote => true %>
     </td>
   </tr>

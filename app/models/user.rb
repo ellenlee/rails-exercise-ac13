@@ -5,4 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :topics
+
+  has_many :likes
+  has_many :liked_topics, :through => :likes, :source => :topic
+
+  def display_name
+    email.split("@").first
+  end
+
 end
