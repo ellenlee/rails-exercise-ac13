@@ -1,7 +1,14 @@
 class TopicsController < ApplicationController
 
   def index
-    @topics = Topic.all
+    @topics = Topic.order("id DESC")
+  end
+
+  def create
+    @topic = Topic.create( topic_params )
+    @topic.user = current_user
+    @topic.save!
+    redirect_to topics_path
   end
 
   def like
@@ -38,6 +45,12 @@ class TopicsController < ApplicationController
       format.js # destroy.js.erb
       format.html { redirect_to topics_path }
     end
+  end
+
+  protected
+
+  def topic_params
+    params.require(:topic).permit(:title)
   end
 
 end

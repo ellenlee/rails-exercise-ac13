@@ -1,5 +1,16 @@
 <h1>Topics list (<span id="topics-count"><%= Topic.count %></span>)</h1>
 
+<%= form_for Topic.new do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "新增", :class => "btn btn-primary" %>
+  </div>
+<% end %>
+
+
 <table class="table">
 <% @topics.each do |topic| %>
   <tr id="topic-<%= topic.id %>">
