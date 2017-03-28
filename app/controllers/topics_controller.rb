@@ -4,6 +4,24 @@ class TopicsController < ApplicationController
     @topics = Topic.all
   end
 
+  def like
+    topic = Topic.find( params[:id] )
+
+    unless topic.is_liked_by(current_user)
+      Like.create( :topic => topic, :user => current_user )
+    end
+
+    redirect_to topics_path
+  end
+
+  def unlike
+    topic = Topic.find(params[:id])
+    like = topic.find_like(current_user)
+
+    like.destroy
+    redirect_to topics_path
+  end
+
   def destroy
     @topic = Topic.find( params[:id] )
     @topic.destroy

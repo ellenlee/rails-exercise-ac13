@@ -13,6 +13,13 @@
       <% end %>
     </td>
     <td>
+      <% if topic.is_liked_by(current_user) %>
+        <%= link_to "-1", unlike_topic_path(topic), :method => :post, :class => "btn btn-primary" %>
+      <% else %>
+        <%= link_to "+1", like_topic_path(topic), :method => :post, :class => "btn btn-success" %>
+      <% end %>
+    </td>
+    <td>
       <%= link_to "Delete", topic_path(topic), :method => :delete, :remote => true, :class => "btn btn-danger" %>
     </td>
   </tr>
