@@ -1,0 +1,5 @@
+str = "<%=j render :partial => "like", :locals => { :topic => @topic } %>"
+
+$("#topic-like-<%= @topic.id %>").html(str);
+
+$("#topic-like-count-<%= @topic.id %>").text( <%= @topic.liked_users.count %> );

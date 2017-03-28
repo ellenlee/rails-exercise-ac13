@@ -1,0 +1,9 @@
+<% topic.liked_users.each do |u| %>
+  <%= u.display_name %>,
+<% end %>
+
+<% if topic.is_liked_by(current_user) %>
+  <%= link_to "-1", unlike_topic_path(topic), :method => :post, :class => "btn btn-primary", :remote => true %>
+<% else %>
+  <%= link_to "+1", like_topic_path(topic), :method => :post, :class => "btn btn-success", :remote => true %>
+<% end %>
