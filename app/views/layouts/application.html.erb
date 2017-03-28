@@ -9,6 +9,8 @@
   </head>
 
   <body>
+    <div class="container">
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
@@ -19,7 +21,8 @@
       <%= link_to('註冊', new_registration_path(:user)) %> |
       <%= link_to('登入', new_session_path(:user)) %>
     <% end %>
-    
+
     <%= yield %>
+    </div>
   </body>
 </html>

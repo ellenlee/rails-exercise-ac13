@@ -13,6 +13,7 @@ gem 'sqlite3'
 
 gem 'devise'
 gem 'faker'
+gem 'bootstrap-sass'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

@@ -1,6 +1,6 @@
 <h1>Topics list (<span id="topics-count"><%= Topic.count %></span>)</h1>
 
-<table>
+<table class="table">
 <% @topics.each do |topic| %>
   <tr id="topic-<%= topic.id %>">
     <td><%= topic.title %></td>
@@ -13,7 +13,7 @@
       <% end %>
     </td>
     <td>
-      <%= link_to "Delete", topic_path(topic), :method => :delete, :remote => true %>
+      <%= link_to "Delete", topic_path(topic), :method => :delete, :remote => true, :class => "btn btn-danger" %>
     </td>
   </tr>
 <% end %>

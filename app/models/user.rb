@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :topics
 
-  has_many :likes
+  has_many :likes, :dependent => :destroy
   has_many :liked_topics, :through => :likes, :source => :topic
 
   def display_name
