@@ -11,6 +11,7 @@ gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+gem 'devise'
 gem 'faker'
 
 # Use Puma as the app server
