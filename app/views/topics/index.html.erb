@@ -1,0 +1,12 @@
+<h1>Topics list</h1>
+
+<table>
+<% @topics.each do |topic| %>
+  <tr id="topic-<%= topic.id %>">
+    <td><%= topic.title %></td>
+    <td>
+      <%= link_to "Delete", topic_path(topic), :method => :delete, :remote => true %>
+    </td>
+  </tr>
+<% end %>
+</table>
