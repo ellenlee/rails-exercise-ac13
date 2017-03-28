@@ -7,8 +7,12 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.create( topic_params )
     @topic.user = current_user
-    @topic.save!
-    redirect_to topics_path
+    @topic.save
+
+    respond_to do |format|
+      format.js # create.js.erb
+      format.html { redirect_to topics_path }
+    end
   end
 
   def like

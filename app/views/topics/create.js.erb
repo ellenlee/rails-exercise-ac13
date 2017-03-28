@@ -1,0 +1,10 @@
+<% if @topic.valid? %>
+  str = "<%= j render :partial => "tr", :locals => { :topic => @topic } %>";
+  $("table").prepend(str);
+  $("#topic_title").val("");
+
+<% else %>
+
+  alert("GG");
+
+<% end %>

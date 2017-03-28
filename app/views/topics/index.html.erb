@@ -1,6 +1,6 @@
 <h1>Topics list (<span id="topics-count"><%= Topic.count %></span>)</h1>
 
-<%= form_for Topic.new do |f| %>
+<%= form_for Topic.new, :remote => true do |f| %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, :class => "form-control" %>
@@ -13,17 +13,6 @@
 
 <table class="table">
 <% @topics.each do |topic| %>
-  <tr id="topic-<%= topic.id %>">
-    <td><%= topic.title %></td>
-    <td id="topic-like-count-<%= topic.id %>">
-      <%= topic.liked_users.size %>
-    </td>
-    <td id="topic-like-<%= topic.id %>">
-      <%= render :partial => "like", :locals => { :topic => topic } %>
-    </td>
-    <td>
-      <%= link_to "Delete", topic_path(topic), :method => :delete, :remote => true, :class => "btn btn-danger" %>
-    </td>
-  </tr>
+  <%= render :partial => "tr", :locals => { :topic => topic } %>
 <% end %>
 </table>

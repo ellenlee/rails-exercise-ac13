@@ -1,0 +1,12 @@
+<tr id="topic-<%= topic.id %>">
+  <td><%= topic.title %></td>
+  <td id="topic-like-count-<%= topic.id %>">
+    <%= topic.liked_users.size %>
+  </td>
+  <td id="topic-like-<%= topic.id %>">
+    <%= render :partial => "like", :locals => { :topic => topic } %>
+  </td>
+  <td>
+    <%= link_to "Delete", topic_path(topic), :method => :delete, :remote => true, :class => "btn btn-danger" %>
+  </td>
+</tr>
