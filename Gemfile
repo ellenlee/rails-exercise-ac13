@@ -15,6 +15,8 @@ gem 'devise'
 gem 'faker'
 gem 'bootstrap-sass'
 
+gem 'rest-client'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

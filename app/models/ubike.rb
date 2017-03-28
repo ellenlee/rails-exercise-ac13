@@ -1,0 +1,2 @@
+class Ubike < ApplicationRecord
+end
