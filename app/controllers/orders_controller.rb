@@ -7,6 +7,11 @@ class OrdersController < ApplicationController
   end
 
   def new
+    if current_cart.cart_items.empty?
+      flash[:alert] = "沒東西幹嘛結帳!!"
+      redirect_to root_path
+    end
+    
     @order = Order.new
   end
 
