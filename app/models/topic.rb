@@ -1,7 +1,7 @@
 class Topic < ApplicationRecord
 
   validates_presence_of :title
-  
+
   belongs_to :user, :optional => true
 
   has_many :likes, :dependent => :destroy
@@ -12,7 +12,7 @@ class Topic < ApplicationRecord
   end
 
   def is_liked_by(user)
-    find_like(user).present?
+    user && find_like(user).present?
   end
 
 end
