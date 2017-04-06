@@ -1,0 +1,17 @@
+<h1>Admin Products list</h1>
+
+<table class="table">
+<% @products.each do |product| %>
+<tr>
+  <td>
+    <%= image_tag(product.image_url, :width => 120) %>
+  </td>
+  <td>
+    <%= product.name %>
+  </td>
+  <td>
+    $<%= product.price %>
+  </td>
+</tr>
+<% end %>
+</table>

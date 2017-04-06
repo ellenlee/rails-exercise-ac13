@@ -16,5 +16,9 @@ Rails.application.routes.draw do
     #resources :likes
   end
 
+  namespace :admin do    
+    resources :products # Admin::ProductsController
+  end
+
   root "products#index"
 end
