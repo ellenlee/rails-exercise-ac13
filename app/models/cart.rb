@@ -2,6 +2,10 @@ class Cart < ApplicationRecord
 
   has_many :cart_items, :dependent => :destroy
 
+  def total_qty
+    cart_items.map{ |x| x.qty }.sum
+  end
+  
   def add_product(product)
     existing_item = self.cart_items.find_by_product_id( product.id )
     if existing_item

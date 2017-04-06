@@ -1,11 +1,7 @@
 <h1><%= t( "product_list" ) %></h1>
 
-<p>購物車有 <%= current_cart.cart_items.size %> 個商品</p>
-<ul>
-<% current_cart.cart_items.each do |item| %>
-  <li><%= item.product.name %> 數量<%= item.qty %></li>
-<% end %>
-</ul>
+<p>購物車有<span id="cart-total"><%= current_cart.total_qty %></span>個商品</p>
+
 <hr>
 <% @products.each do |product| %>
 <div class="product">
@@ -16,7 +12,7 @@
       $<%= product.price %>
     </p>
     <p>
-      <%= link_to "加入購物車", add_to_cart_product_path(product), :method => :post, :class => "btn btn-primary" %>
+      <%= link_to "加入購物車", add_to_cart_product_path(product), :method => :post, :class => "btn btn-primary", :remote => true %>
     </p>
   <% end %>
 </div>

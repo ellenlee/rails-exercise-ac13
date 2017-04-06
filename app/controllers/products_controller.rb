@@ -13,7 +13,8 @@ class ProductsController < ApplicationController
 
     current_cart.add_product(@product)
 
-    redirect_to root_path
+    #redirect_to root_path
+    
   end
 
 end
