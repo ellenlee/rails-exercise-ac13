@@ -1,0 +1,13 @@
+<h1>Products list</h1>
+
+<% @products.each do |product| %>
+<div class="product">
+  <%= link_to product_path(product) do %>
+    <%= image_tag(product.image_url, :width => 120) %>
+    <p>
+      <%= product.name %>
+      $<%= product.price %>
+    </p>
+  <% end %>
+</div>
+<% end %>

@@ -1,5 +1,14 @@
 namespace :dev do
 
+  task :fake_products => :environment do
+    20.times do
+      Product.create!( :name => Faker::Cat.name,
+                       :description => Faker::Lorem.paragraph,
+                       :price => (rand(100)+1) * 10,
+                       :image_url => Faker::Avatar.image )
+    end
+  end
+
   task :ubike => :environment do
     url = 'http://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=ddb80380-f1b3-4f8e-8016-7ed9cba571d5'
     response = RestClient.get(url)
