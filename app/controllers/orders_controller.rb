@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
       flash[:alert] = "沒東西幹嘛結帳!!"
       redirect_to root_path
     end
-    
+
     @order = Order.new
   end
 
@@ -21,6 +21,8 @@ class OrdersController < ApplicationController
     @order.add_items(current_cart)
 
     if @order.save
+      UserMailer.notify_order(@order).deliver_later
+      
       current_cart.destroy
       session[:cart_id] = nil
 
