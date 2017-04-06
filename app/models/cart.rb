@@ -1,6 +1,6 @@
 class Cart < ApplicationRecord
 
-  has_many :cart_items
+  has_many :cart_items, :dependent => :destroy
 
   def add_product(product)
     existing_item = self.cart_items.find_by_product_id( product.id )

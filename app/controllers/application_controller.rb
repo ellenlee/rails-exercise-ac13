@@ -7,12 +7,13 @@ class ApplicationController < ActionController::Base
     return @cart if @cart
 
     if session[:cart_id]
-      @cart = Cart.find(session[:cart_id])
-    else
-      @cart = Cart.create
-      session[:cart_id] = @cart.id
+      @cart = Cart.find_by_id(session[:cart_id])
+      return @cart if @cart
     end
-    
+
+    @cart = Cart.create
+    session[:cart_id] = @cart.id
+
     return @cart
   end
 

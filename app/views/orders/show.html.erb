@@ -1,0 +1,7 @@
+<h1>訂單編號 <%= @order.id %></h1>
+
+<p>Amount: <%= @order.amount %></p>
+
+<% @order.order_items.each do |item| %>
+  <li><%= item.product.name %> 數量<%= item.qty %></li>
+<% end %>
