@@ -1,6 +1,9 @@
 <ul>
 <% current_cart.cart_items.each do |item| %>
-  <li><%= item.product.name %> 數量<%= item.qty %></li>
+  <li>
+    <%= item.product.name %> 數量<%= item.qty %>
+    <%= link_to "不買了!", remove_product_path(item.product), :method => :post, :class => "btn btn-danger btn-sm" %>
+  </li>
 <% end %>
 </ul>
 
