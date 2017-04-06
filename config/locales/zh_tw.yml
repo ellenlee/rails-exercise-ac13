@@ -1,0 +1,7 @@
+zh-TW:
+  credit_card: 信用卡
+  atm: ATM轉帳
+  order:
+    status:
+      new: 新訂單
+  product_list: 產品列表
