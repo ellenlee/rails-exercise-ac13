@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get "/react" => "welcome#react"
+  get "/vue" => "welcome#vue"
   
   resources :products do
     member do

@@ -17,6 +17,11 @@
 //= require react
 //= require react_ujs
 //= require components
+<% if Rails.env.production?
+  require_asset "vue.min"
+else
+  require_asset "vue"
+end %>
 //= require_tree .
 
 $(document).on("turbolinks:load", function(){
