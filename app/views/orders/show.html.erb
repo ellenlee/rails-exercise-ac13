@@ -8,6 +8,13 @@
   <li><%= item.product.name %> 數量<%= item.qty %></li>
 <% end %>
 <hr>
+
 <% if @order.status == "new" %>
-  付款按鈕
+
+<p>
+  <% Payment::PAYMENT_METHODS.each do |pm| %>
+    <%= link_to t(pm, :scope => "PaymentPay2go"), checkout_pay2go_order_path(@order, :payment_method => pm), :class => "btn btn-primary btn-lg", :method => :post %>
+  <% end %>
+</p>
+
 <% end %>

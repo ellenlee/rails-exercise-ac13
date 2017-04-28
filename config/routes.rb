@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  post 'pay2go/return'
+  post 'pay2go/notify'
+  
   get "/react" => "welcome#react"
   get "/vue" => "welcome#vue"
 
@@ -10,7 +13,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders
+  resources :orders do
+    member do
+       post :checkout_pay2go
+    end
+  end
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

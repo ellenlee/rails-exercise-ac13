@@ -4,4 +4,11 @@ zh-TW:
   order:
     status:
       new: 新訂單
+      paid: 已經付款      
   product_list: 產品列表
+  PaymentPay2go:
+    Credit: 刷卡
+    WebATM: Web ATM
+    ATM: ATM
+    CVS: 超商
+    BARCODE: 條碼
